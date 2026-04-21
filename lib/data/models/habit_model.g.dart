@@ -1,0 +1,59 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'habit_model.dart';
+
+// **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class HabitAdapter extends TypeAdapter<Habit> {
+  @override
+  final int typeId = 0;
+
+  @override
+  Habit read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Habit(
+      id: fields[0] as String,
+      name: fields[1] as String,
+      targetCount: fields[2] as int,
+      scheduledDays: (fields[3] as List).cast<int>(),
+      createdAt: fields[4] as DateTime,
+      reminderHour: fields[5] as int,
+      reminderMinute: fields[6] as int,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Habit obj) {
+    writer
+      ..writeByte(7)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.targetCount)
+      ..writeByte(3)
+      ..write(obj.scheduledDays)
+      ..writeByte(4)
+      ..write(obj.createdAt)
+      ..writeByte(5)
+      ..write(obj.reminderHour)
+      ..writeByte(6)
+      ..write(obj.reminderMinute);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is HabitAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
